@@ -1,14 +1,10 @@
 <template>
   <section class="section section-1">
     <div class="title-container">
+      <div class="image" />
       <h1 class="main-title">
-        <p class="first">
+        <p class="letters">
           <span v-for="(letter, i) in titleArray(title1)" :key="i">{{
-            letter
-          }}</span>
-        </p>
-        <p class="second">
-          <span v-for="(letter, i) in titleArray(title2)" :key="i">{{
             letter
           }}</span>
         </p>
@@ -25,8 +21,7 @@ export default Vue.extend({
   name: 'TitleSection',
   data() {
     return {
-      title1: 'Home',
-      title2: 'lab',
+      title1: 'HOMELAB',
     }
   },
   methods: {
@@ -39,36 +34,61 @@ export default Vue.extend({
 
 <style lang="scss">
 .section-1 {
-  background-attachment: fixed;
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.shutterstock.com%2Fz%2Fstock-photo-computer-repair-160046102.jpg&f=1&nofb=1);
+  overflow: hidden;
 
   .title-container {
-    height: 100%;
     width: 100%;
-    background: linear-gradient(to bottom, #ffffff86 50%, #ffffff 90%);
+    height: 100%;
+    background-color: #1e1e1e;
+
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: start;
     flex-direction: column;
+    position: relative;
 
     .scroll-down {
       position: absolute;
-      bottom: 0;
+      bottom: 50px;
       left: 50%;
       transform: translate(-50%, 0) rotate(180deg);
       font-size: 50px;
       font-weight: 100;
-      color: #999;
+      color: #ed5565;
+      text-shadow: 0 0 1px #000;
+    }
+
+    .image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      right: 0;
+      bottom: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      // clip-path: polygon(0 30%, 20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%);
+      background-image: url('~@/assets/images/IMG_20201013_181543.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
     }
 
     .main-title {
-      font-family: 'libre-baskerville', serif;
+      height: 500px;
+      padding: 0 150px;
+      position: absolute;
+      font-family: 'noto-sans', sans-serif;
       display: block;
-      font-size: 15vw;
-      color: #20435ac2;
+      font-size: 60pt;
+      color: #fff;
       letter-spacing: 1px;
-      position: relative;
+      text-align: center;
+      align-items: flex-end;
+      display: flex;
+      transform: rotate(-45deg) translate(-75px, -360px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      background-color: #1e1e1e;
 
       p {
         span {
@@ -77,18 +97,10 @@ export default Vue.extend({
         }
       }
 
-      p.first {
-        @for $i from 1 through 4 {
+      p.letters {
+        @for $i from 1 through 7 {
           span:nth-of-type(#{$i}) {
-            animation-delay: ($i * 120) + ms;
-          }
-        }
-      }
-
-      p.second {
-        @for $i from 1 through 3 {
-          span:nth-of-type(#{$i}) {
-            animation-delay: (($i + 4) * 120) + ms;
+            animation-delay: ($i * 100) + ms;
           }
         }
       }
