@@ -39,7 +39,6 @@ export default Vue.extend({
   .title-container {
     width: 100%;
     height: 100%;
-    background-color: #1e1e1e;
 
     display: flex;
     justify-content: flex-start;
@@ -68,7 +67,6 @@ export default Vue.extend({
       box-sizing: border-box;
       overflow: hidden;
       // clip-path: polygon(0 30%, 20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%);
-      background-image: url('~@/assets/images/IMG_20201013_181543.jpg');
       background-attachment: fixed;
       background-size: cover;
       background-position: center;

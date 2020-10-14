@@ -18,7 +18,7 @@ export default Vue.extend({})
   height: 100vh;
   // scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  background-image: url('~@/assets/images/IMG_20201013_181543.jpg');
+  background-image: url('~@/assets/images/home-1080x.webp');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
