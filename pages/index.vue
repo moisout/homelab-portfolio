@@ -16,7 +16,7 @@ export default Vue.extend({})
 .container {
   margin: 0 auto;
   height: 100vh;
-  // scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
   overflow-y: scroll;
   background-image: url('~@/assets/images/home-1080x.webp');
   background-attachment: fixed;
@@ -24,7 +24,7 @@ export default Vue.extend({})
   background-position: center;
 
   .section {
-    // scroll-snap-align: start;
+    scroll-snap-align: start;
     height: 100%;
     width: 100%;
   }
