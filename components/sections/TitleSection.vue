@@ -9,27 +9,26 @@
           }}</span>
         </p>
       </h1>
-      <span class="scroll-down">^</span>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'TitleSection',
   data() {
     return {
       title1: 'HOMELAB',
-    }
+    };
   },
   methods: {
     titleArray(title: string): Array<string> {
-      return title.split('')
+      return title.split('');
     },
   },
-})
+});
 </script>
 
 <style lang="scss">
@@ -46,17 +45,6 @@ export default Vue.extend({
     text-align: start;
     flex-direction: column;
     position: relative;
-
-    .scroll-down {
-      position: absolute;
-      bottom: 50px;
-      left: 50%;
-      transform: translate(-50%, 0) rotate(180deg);
-      font-size: 50px;
-      font-weight: 100;
-      color: #ed5565;
-      text-shadow: 0 0 1px #000;
-    }
 
     .image {
       position: absolute;
