@@ -3,7 +3,7 @@
     <div class="overview">
       <div class="overview-box">
         <div class="content">
-          <h2>Homelab Portfolio</h2>
+          <nuxt-content :document="page" />
         </div>
       </div>
     </div>
@@ -11,12 +11,21 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'OverviewSection',
-  data() {},
-})
+  async fetch() {
+    const page = await this.$content('overview').fetch();
+
+    this.page = page;
+  },
+  data() {
+    return {
+      page: null,
+    };
+  },
+});
 </script>
 
 <style lang="scss">
