@@ -33,8 +33,8 @@ export default Vue.extend({
   position: sticky;
   top: 0;
   background: linear-gradient(to bottom, transparent, #000000c9);
-  // backdrop-filter: blur(50px);
   z-index: 2;
+  margin: 30% 0 0 0;
 
   .overview {
     width: 100%;

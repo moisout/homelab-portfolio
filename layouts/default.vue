@@ -3,6 +3,12 @@
 </template>
 
 <style>
+:root {
+  --color-main: #8a2387;
+  --color-alt: #e94057;
+  --color-light: #f27121;
+}
+
 html {
   font-family: 'noto-sans', Arial, sans-serif;
   font-size: 16px;

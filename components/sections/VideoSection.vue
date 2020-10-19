@@ -11,12 +11,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'VideoSection',
-  data() {},
-})
+  data() {
+    return {};
+  },
+});
 </script>
 
 <style lang="scss">
