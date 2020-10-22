@@ -1,20 +1,21 @@
 <template>
-  <main class="container" @scroll.passive="handleScroll">
+  <main class="container">
     <div class="img-clip">
-      <div class="img-main" />
-      <div
-        class="img-front"
-        :style="{
-          transform: `scale3d(${scrollTop},${scrollTop},${scrollTop})`,
-          opacity: 1 - (scrollTop - 1),
-        }"
-      ></div>
-      <div
-        class="img-container"
-        :style="{
-          transform: `scale3d(${scrollTop},${scrollTop},${scrollTop})`,
-        }"
-      ></div>
+      <div class="img-main">
+        <picture>
+          <source
+            media="(min-width: 56.25em)"
+            src="~@/assets/images/home-1440x.webp"
+          />
+          <source
+            media="(min-width: 37.5em)"
+            src="~@/assets/images/home-1080x.webp"
+          />
+          <source src="~@/assets/images/home-720x.webp" />
+          <img src="~@/assets/images/home-720x.webp" alt="" />
+        </picture>
+      </div>
+      <div class="img-container"></div>
     </div>
     <TitleSection />
     <OverviewSection />
@@ -31,13 +32,6 @@ export default Vue.extend({
       scrollTop: 1,
       scrollTopDegrees: 0,
     };
-  },
-  methods: {
-    handleScroll(e: any) {
-      const scroll = Math.floor(e.target.scrollTop / 60) / 5 + 1;
-      this.scrollTop = scroll < 2 ? 1 : 2;
-      this.scrollTopDegrees = Math.floor(e.target.scrollTop / 60);
-    },
   },
 });
 </script>
@@ -60,6 +54,7 @@ export default Vue.extend({
       height: 100%;
       transform-origin: center;
       pointer-events: none;
+      // background-color: #fff;
       background: linear-gradient(
         to bottom,
         var(--color-main),
@@ -73,23 +68,13 @@ export default Vue.extend({
         100% 100%,
         0 100%,
         0 0,
-        30% 30%,
-        30% 70%,
-        70% 70%,
-        70% 30%,
-        30% 30%
+        10% 10%,
+        10% 90%,
+        90% 90%,
+        90% 10%,
+        10% 10%
       );
-    }
-
-    .img-front {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transform-origin: center;
-      pointer-events: none;
-      background-color: #1e1e1e;
-      transition: transform 300ms linear, opacity 300ms linear;
-      clip-path: polygon(30% 29%, 30% 71%, 70% 71%, 70% 29%, 30% 29%);
+      // transform: scale(2);
     }
 
     .img-main {
@@ -97,11 +82,20 @@ export default Vue.extend({
       display: block;
       object-fit: cover;
       transform-origin: center;
-      background: url('~@/assets/images/home-1080x.webp');
+      // background: url('~@/assets/images/home-1080x.webp');
       width: 100%;
       height: 100%;
       background-size: cover;
       background-position: center;
+
+      picture {
+        position: absolute;
+        min-height: 100%;
+        min-width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
