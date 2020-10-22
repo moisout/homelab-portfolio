@@ -32,6 +32,7 @@ export default Vue.extend({
   .overview {
     width: 100%;
     height: 100%;
+
     margin: 0;
     padding: 50px;
     box-sizing: border-box;
