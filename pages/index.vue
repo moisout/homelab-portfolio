@@ -29,12 +29,14 @@ export default Vue.extend({
   data() {
     return {
       scrollTop: 1,
+      scrollTopDegrees: 0,
     };
   },
   methods: {
     handleScroll(e: any) {
       const scroll = Math.floor(e.target.scrollTop / 60) / 5 + 1;
-      this.scrollTop = scroll < 2 ? scroll : 2;
+      this.scrollTop = scroll < 2 ? 1 : 2;
+      this.scrollTopDegrees = Math.floor(e.target.scrollTop / 60);
     },
   },
 });
@@ -86,7 +88,7 @@ export default Vue.extend({
       transform-origin: center;
       pointer-events: none;
       background-color: #1e1e1e;
-      transition: transform 300ms linear;
+      transition: transform 300ms linear, opacity 300ms linear;
       clip-path: polygon(30% 29%, 30% 71%, 70% 71%, 70% 29%, 30% 29%);
     }
 
@@ -106,6 +108,14 @@ export default Vue.extend({
   .section {
     height: 100%;
     width: 100%;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
