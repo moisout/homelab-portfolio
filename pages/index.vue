@@ -5,14 +5,14 @@
       <div
         class="img-front"
         :style="{
-          transform: `scale(${scrollTop})`,
+          transform: `scale3d(${scrollTop},${scrollTop},${scrollTop})`,
           opacity: 1 - (scrollTop - 1),
         }"
       ></div>
       <div
         class="img-container"
         :style="{
-          transform: `scale(${scrollTop})`,
+          transform: `scale3d(${scrollTop},${scrollTop},${scrollTop})`,
         }"
       ></div>
     </div>
@@ -33,7 +33,8 @@ export default Vue.extend({
   },
   methods: {
     handleScroll(e: any) {
-      this.scrollTop = e.target.scrollTop / 300 + 1;
+      const scroll = Math.floor(e.target.scrollTop / 60) / 5 + 1;
+      this.scrollTop = scroll < 2 ? scroll : 2;
     },
   },
 });
@@ -63,6 +64,7 @@ export default Vue.extend({
         var(--color-alt),
         var(--color-light)
       );
+      transition: transform 300ms linear;
       clip-path: polygon(
         0 0,
         100% 0,
@@ -84,6 +86,7 @@ export default Vue.extend({
       transform-origin: center;
       pointer-events: none;
       background-color: #1e1e1e;
+      transition: transform 300ms linear;
       clip-path: polygon(30% 29%, 30% 71%, 70% 71%, 70% 29%, 30% 29%);
     }
 
