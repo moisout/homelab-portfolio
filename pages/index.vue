@@ -1,5 +1,6 @@
 <template>
-  <main class="container">
+  <main id="main-container" class="container">
+    <Navigation />
     <div class="img-clip">
       <div class="img-main">
         <picture>
@@ -12,14 +13,16 @@
             src="~@/assets/images/home-1080x.webp"
           />
           <source src="~@/assets/images/home-720x.webp" />
-          <img src="~@/assets/images/home-720x.webp" alt="" />
+          <!-- <img src="~@/assets/images/home-720x.webp" alt="" /> -->
         </picture>
       </div>
       <div class="img-container"></div>
     </div>
-    <TitleSection />
     <OverviewSection />
+    <GallerySection />
     <VideoSection />
+    <AppsSection />
+    <AboutSection />
   </main>
 </template>
 
@@ -27,6 +30,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
+  components: {},
   data() {
     return {
       scrollTop: 1,
@@ -41,6 +45,7 @@ export default Vue.extend({
   margin: 0 auto;
   height: 100vh;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 
   .img-clip {
     position: fixed;
@@ -55,25 +60,27 @@ export default Vue.extend({
       transform-origin: center;
       pointer-events: none;
       // background-color: #fff;
-      background: linear-gradient(
-        to bottom,
-        var(--color-main),
-        var(--color-alt),
-        var(--color-light)
-      );
-      transition: transform 300ms linear;
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 100%,
-        0 100%,
-        0 0,
-        10% 10%,
-        10% 90%,
-        90% 90%,
-        90% 10%,
-        10% 10%
-      );
+      background-color: #ffffff;
+      opacity: 0.08;
+      background-image: linear-gradient(135deg, #d500ff 25%, transparent 25%),
+        linear-gradient(225deg, #d500ff 25%, transparent 25%),
+        linear-gradient(45deg, #d500ff 25%, transparent 25%),
+        linear-gradient(315deg, #d500ff 25%, #ffffff 25%);
+      background-position: 13px 0, 13px 0, 0 0, 0 0;
+      background-size: 26px 26px;
+      background-repeat: repeat;
+      // clip-path: polygon(
+      //   0 0,
+      //   100% 0,
+      //   100% 100%,
+      //   0 100%,
+      //   0 0,
+      //   10% 10%,
+      //   10% 90%,
+      //   90% 90%,
+      //   90% 10%,
+      //   10% 10%
+      // );
       // transform: scale(2);
     }
 
@@ -87,14 +94,16 @@ export default Vue.extend({
       height: 100%;
       background-size: cover;
       background-position: center;
+      z-index: +1;
 
-      picture {
+      picture,
+      img {
         position: absolute;
         min-height: 100%;
         min-width: 100%;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(0.8);
       }
     }
   }
@@ -102,6 +111,50 @@ export default Vue.extend({
   .section {
     height: 100%;
     width: 100%;
+  }
+}
+
+.overview {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 50px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 800px) {
+    padding: 70px 10px 10px 10px;
+  }
+
+  .overview-box {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    color: #111;
+    position: relative;
+
+    .content {
+      border-radius: 20px;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      background-color: #fff;
+      position: absolute;
+    }
+
+    &:before {
+      content: '';
+      border-radius: 25px;
+      position: absolute;
+      top: 75px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: #dd2c77;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
   }
 }
 @keyframes rotate {

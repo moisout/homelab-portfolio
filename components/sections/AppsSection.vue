@@ -1,9 +1,9 @@
 <template>
-  <section id="video" class="section section-3">
+  <section id="apps" class="section section-4">
     <div class="overview">
       <div class="overview-box">
         <div class="content">
-          <h2>Video</h2>
+          <h2>Apps</h2>
         </div>
       </div>
     </div>
@@ -14,7 +14,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'VideoSection',
+  name: 'AppsSection',
   data() {
     return {};
   },
@@ -22,7 +22,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.section-3 {
+.section-4 {
   position: sticky;
   top: 0;
   // background: linear-gradient(to bottom, transparent, #000000c9 60%);

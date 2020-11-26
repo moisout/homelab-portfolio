@@ -1,9 +1,12 @@
 <template>
-  <section class="section section-2">
-    <div class="overview">
-      <div class="overview-box">
-        <div class="content">
-          <nuxt-content :document="page" />
+  <section id="uebersicht" class="section section-1">
+    <div class="title-container">
+      <div class="image" />
+      <div id="uebersicht" class="overview">
+        <div class="overview-box">
+          <div class="content">
+            <h2>overview</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -15,68 +18,47 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'OverviewSection',
-  async fetch() {
-    const page = await this.$content('overview').fetch();
-
-    this.page = page;
-  },
-  data() {
-    return {
-      page: null,
-    };
-  },
 });
 </script>
 
 <style lang="scss">
-.section-2 {
+.section-1 {
+  overflow: hidden;
   position: sticky;
   top: 0;
-  background: linear-gradient(to bottom, transparent, #000000c9);
-  z-index: 2;
-  margin: 30% 0 0 0;
 
-  .overview {
+  .title-container {
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 50px;
-    box-sizing: border-box;
 
-    @media screen and (max-width: 800px) {
-      padding: 10px;
-    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: start;
+    flex-direction: column;
+    position: relative;
 
-    .overview-box {
-      box-sizing: border-box;
+    .image {
+      position: absolute;
       width: 100%;
       height: 100%;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-      border-radius: 5px;
-      color: #fff;
-      position: relative;
+      right: 0;
+      bottom: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      // clip-path: polygon(0 30%, 20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+  }
 
-      .content {
-        border-radius: 5px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 20px;
-        background-color: #1e1e1e;
-        position: absolute;
-      }
-
-      &:before {
-        content: '';
-        border-radius: 5px;
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        background: linear-gradient(135deg, #f6ab3e 0%, #8037f6 100%);
-      }
+  @keyframes appear {
+    90% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }
