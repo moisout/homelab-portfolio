@@ -21,13 +21,6 @@ jobs:
         uses: CultureHQ/actions-yarn@v1.0.1
         with:
           args: generate
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to
-          FOLDER: dist # The folder the action should deploy
-          CLEAN: false # Automatically remove deleted files from the deploy branch
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
@@ -42,6 +35,13 @@ jobs:
           # protocol to deploy with - ftp, ftps, or ftps-legacy
           protocol: ftp
           # Folder to upload from, must end with trailing slash /
-          local-dir: dist/
+          local-dir: ./dist/
           # Path to upload to on the server. Must end with trailing slash /
           server-dir: /
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to
+          FOLDER: dist # The folder the action should deploy
+          CLEAN: false # Automatically remove deleted files from the deploy branch
