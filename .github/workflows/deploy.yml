@@ -20,18 +20,14 @@ jobs:
       - name: Generate
         uses: CultureHQ/actions-yarn@v1.0.1
         with:
-          args: generate
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+          args: generate    
+      - name: FTP Deployment
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          # ftp server
           server: ${{ secrets.FTP_SERVER }}
-          # ftp username
-          username: ${{ secrets.FTP_USERNAME }}
-          # ftp password
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Folder to upload from, must end with trailing slash /
-          local-dir: 'dist/'
+          local_dir: dist/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
