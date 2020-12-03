@@ -19,7 +19,8 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
-  scrollbar-color: #797979 #000;
+  scrollbar-color: #ff3d8ba4 #000;
+  scrollbar-width: auto;
 }
 
 *,

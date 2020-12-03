@@ -1,6 +1,11 @@
 <template>
   <header>
     <h1 class="main-title">
+      <img
+        class="homelab-logo"
+        src="@/assets/logos/homelab-logo-light.svg"
+        alt="Homelab Logo"
+      />
       <p class="letters">
         <span v-for="(letter, i) in titleArray(title1)" :key="i">{{
           letter
@@ -90,7 +95,7 @@ export default Vue.extend({
     const options = {
       root: document.getElementById('main-container'),
       rootMargin: '0px',
-      threshold: 0.8,
+      threshold: 1,
     };
 
     const observer = new IntersectionObserver((entries: any, _) => {
@@ -161,11 +166,29 @@ header {
     background-color: #1e1e1e;
     z-index: 10;
 
+    .homelab-logo {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 64px;
+      height: 64px;
+    }
+
     @media screen and (max-width: 800px) {
-      transform: none;
+      transform: rotate(0) translate(0, 0);
       height: 60px;
       width: 100%;
-      padding: 0 10px;
+      padding: 0 10px 0 56px;
+      animation: fade 300ms;
+
+      .homelab-logo {
+        top: 2.5px;
+        left: 2.5px;
+        transform: translateX(0) rotate(0);
+        width: 50px;
+        height: 50px;
+      }
     }
 
     p {
@@ -188,6 +211,7 @@ header {
     flex-direction: row;
     justify-content: space-evenly;
     height: 80px;
+    transition: margin 300ms;
 
     @media screen and (max-width: 800px) {
       margin-top: 60px;
@@ -230,6 +254,14 @@ header {
         }
       }
     }
+  }
+}
+@keyframes fade {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: translateY(0);
   }
 }
 </style>

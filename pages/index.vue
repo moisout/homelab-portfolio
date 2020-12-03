@@ -111,49 +111,56 @@ export default Vue.extend({
   .section {
     height: 100%;
     width: 100%;
-  }
-}
 
-.overview {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 50px;
-  box-sizing: border-box;
-
-  @media screen and (max-width: 800px) {
-    padding: 70px 10px 10px 10px;
-  }
-
-  .overview-box {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    color: #111;
-    position: relative;
-
-    .content {
-      border-radius: 20px;
-      top: 80px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 20px;
-      background-color: #fff;
-      position: absolute;
+    &:nth-of-type(1) {
+      .overview-box::before {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+      }
     }
 
-    &:before {
-      content: '';
-      border-radius: 25px;
-      position: absolute;
-      top: 75px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
-      background: #dd2c77;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    .overview {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 50px;
+      box-sizing: border-box;
+      transition: padding 300ms;
+
+      @media screen and (max-width: 800px) {
+        padding: 70px 10px 10px 10px;
+      }
+
+      .overview-box {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        color: #111;
+        position: relative;
+
+        .content {
+          border-radius: 20px;
+          top: 80px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 20px;
+          background-color: #fff;
+          position: absolute;
+        }
+
+        &::before {
+          content: '';
+          border-radius: 25px;
+          position: absolute;
+          top: 75px;
+          left: -5px;
+          right: -5px;
+          bottom: -5px;
+          background: #dd2c77;
+        }
+      }
     }
   }
 }

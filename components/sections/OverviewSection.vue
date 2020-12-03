@@ -1,5 +1,5 @@
 <template>
-  <section id="uebersicht" class="section section-1">
+  <section id="uebersicht" class="section section-1 first">
     <div class="title-container">
       <div class="image" />
       <div id="uebersicht" class="overview">
@@ -18,6 +18,16 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'OverviewSection',
+  data() {
+    return {
+      page: null,
+    };
+  },
+  async fetch() {
+    const page = await this.$content('overview').fetch();
+
+    this.page = page;
+  },
 });
 </script>
 
