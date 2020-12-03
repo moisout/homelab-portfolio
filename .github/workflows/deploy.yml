@@ -30,14 +30,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           # ftp password
           password: ${{ secrets.FTP_PASSWORD }}
-          # Server port to connect to (read your web hosts docs)
-          port: 21
-          # protocol to deploy with - ftp, ftps, or ftps-legacy
-          protocol: ftp
           # Folder to upload from, must end with trailing slash /
-          local-dir: ./dist/
-          # Path to upload to on the server. Must end with trailing slash /
-          server-dir: /
+          local-dir: 'dist/'
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
