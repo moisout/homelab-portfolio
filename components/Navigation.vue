@@ -215,6 +215,10 @@ header {
 
     @media screen and (max-width: 800px) {
       margin-top: 60px;
+
+      .nav-btn {
+        margin: auto 0;
+      }
     }
 
     .nav-btn {
