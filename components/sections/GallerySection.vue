@@ -98,8 +98,8 @@ export default Vue.extend({
       transform: translateY(-50%);
       color: #1e1e1ebd;
       font-size: 100px;
-      margin: 0;
       font-weight: 100;
+      margin: 0;
       font-family: sans-serif;
       text-shadow: 0 0 5px transparent;
       z-index: 4;
