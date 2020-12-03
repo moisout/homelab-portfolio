@@ -6,7 +6,7 @@ export default {
   target: 'static',
 
   router: {
-    base: './',
+    base: '/2020/ina4a/gruppe14/',
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -36,6 +36,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/router',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
