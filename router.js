@@ -10,13 +10,14 @@ export function createRouter() {
     mode: 'history',
     routes: [
       {
-        path: '/',
+        path: '/2020/ina4a/gruppe14',
         component: Index,
       },
-      // {
-      //   path: '*',
-      //   component: Index,
-      // },
+      {
+        path: '/',
+        component: Index,
+        // redirect: { name: '/2020/ina4a/gruppe14' },
+      },
     ],
   });
 }
