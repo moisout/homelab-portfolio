@@ -1,21 +1,10 @@
 <template>
   <main id="main-container" class="container">
+    <div class="overlay">
+      <div class="pattern" />
+    </div>
     <Navigation />
     <div class="img-clip">
-      <div class="img-main">
-        <picture>
-          <source
-            media="(min-width: 56.25em)"
-            src="~@/assets/images/home-1440x.webp"
-          />
-          <source
-            media="(min-width: 37.5em)"
-            src="~@/assets/images/home-1080x.webp"
-          />
-          <source src="~@/assets/images/home-720x.webp" />
-          <!-- <img src="~@/assets/images/home-720x.webp" alt="" /> -->
-        </picture>
-      </div>
       <div class="img-container"></div>
     </div>
     <OverviewSection />
@@ -41,6 +30,39 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@mixin backgroundpattern {
+  background-color: #ffffff;
+  opacity: 0.08;
+  background-image: linear-gradient(135deg, #d500ff 25%, transparent 25%),
+    linear-gradient(225deg, #d500ff 25%, transparent 25%),
+    linear-gradient(45deg, #d500ff 25%, transparent 25%),
+    linear-gradient(315deg, #d500ff 25%, #ffffff 25%);
+  background-position: 13px 0, 13px 0, 0 0, 0 0;
+  background-size: 26px 26px;
+  background-repeat: repeat;
+}
+
+.overlay {
+  .pattern {
+    @include backgroundpattern();
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background-color: #fff;
+  animation: fade-out 1s ease-in-out forwards;
+  pointer-events: none;
+}
+
 .container {
   margin: 0 auto;
   height: 100vh;
@@ -60,51 +82,7 @@ export default Vue.extend({
       transform-origin: center;
       pointer-events: none;
       // background-color: #fff;
-      background-color: #ffffff;
-      opacity: 0.08;
-      background-image: linear-gradient(135deg, #d500ff 25%, transparent 25%),
-        linear-gradient(225deg, #d500ff 25%, transparent 25%),
-        linear-gradient(45deg, #d500ff 25%, transparent 25%),
-        linear-gradient(315deg, #d500ff 25%, #ffffff 25%);
-      background-position: 13px 0, 13px 0, 0 0, 0 0;
-      background-size: 26px 26px;
-      background-repeat: repeat;
-      // clip-path: polygon(
-      //   0 0,
-      //   100% 0,
-      //   100% 100%,
-      //   0 100%,
-      //   0 0,
-      //   10% 10%,
-      //   10% 90%,
-      //   90% 90%,
-      //   90% 10%,
-      //   10% 10%
-      // );
-      // transform: scale(2);
-    }
-
-    .img-main {
-      position: absolute;
-      display: block;
-      object-fit: cover;
-      transform-origin: center;
-      // background: url('~@/assets/images/home-1080x.webp');
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: +1;
-
-      picture,
-      img {
-        position: absolute;
-        min-height: 100%;
-        min-width: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
-      }
+      @include backgroundpattern();
     }
   }
 
@@ -127,7 +105,7 @@ export default Vue.extend({
       box-sizing: border-box;
       transition: padding 300ms;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: $mobile-width) {
         padding: 70px 10px 10px 10px;
       }
 
@@ -170,6 +148,17 @@ export default Vue.extend({
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>

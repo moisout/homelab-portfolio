@@ -32,6 +32,10 @@ export default {
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
+  styleResources: {
+    scss: ['./assets/scss/*.scss'],
+  },
+
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -39,7 +43,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', '@nuxtjs/style-resources'],
 
   content: [],
 

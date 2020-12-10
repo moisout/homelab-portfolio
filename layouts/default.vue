@@ -2,7 +2,7 @@
   <Nuxt />
 </template>
 
-<style>
+<style lang="scss">
 :root {
   --color-main: #8a2387;
   --color-alt: #e94057;
@@ -19,7 +19,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
-  scrollbar-color: #ff3d8ba4 #000;
+  scrollbar-color: #ff3d8ba4 #d1d1d1;
   scrollbar-width: auto;
 }
 

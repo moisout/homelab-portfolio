@@ -2,8 +2,14 @@
   <section id="video" class="section section-3">
     <div class="overview">
       <div class="overview-box">
-        <div class="content">
-          <h2>Video</h2>
+        <div class="content" :class="{ 'overlay-hidden': videoHidden }">
+          <video ref="video" class="videoplayer" controls="true">
+            <source src="@/assets/videos/videoplayback.mp4" type="video/mp4" />
+          </video>
+          <div class="video-overlay" @click.prevent="playVideo"></div>
+          <span class="play-btn"
+            ><img src="@/assets/logos/play-icon.svg" alt=">"
+          /></span>
         </div>
       </div>
     </div>
@@ -16,7 +22,15 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'VideoSection',
   data() {
-    return {};
+    return {
+      videoHidden: false,
+    };
+  },
+  methods: {
+    playVideo() {
+      this.videoHidden = true;
+      (this.$refs.video as any).play();
+    },
   },
 });
 </script>
@@ -28,5 +42,73 @@ export default Vue.extend({
   // background: linear-gradient(to bottom, transparent, #000000c9 60%);
   // backdrop-filter: blur(50px);
   z-index: 3;
+
+  .overview {
+    .overview-box {
+      &::before {
+        background: linear-gradient(35deg, #ff3e3e, #8c00ff) !important;
+      }
+      .content {
+        padding: 0 !important;
+        border-radius: 25px;
+        overflow: hidden;
+
+        .videoplayer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        &.overlay-hidden {
+          .play-btn,
+          .video-overlay {
+            pointer-events: none;
+            opacity: 0;
+          }
+          .video-overlay {
+            animation: spin-fade 500ms ease-out forwards;
+          }
+        }
+
+        .video-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 18px;
+          background: linear-gradient(35deg, #ff3e3e, #8c00ff);
+        }
+
+        .play-btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: opacity 200ms;
+
+          img {
+            width: 84px;
+            height: 84px;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes spin-fade {
+  0% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(10deg) scale(1.5);
+    opacity: 0;
+  }
 }
 </style>

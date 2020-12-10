@@ -4,6 +4,7 @@
       <div class="overview-box">
         <div class="content">
           <h2>Apps</h2>
+          <div class="app-gallery"></div>
         </div>
       </div>
     </div>
@@ -16,7 +17,9 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'AppsSection',
   data() {
-    return {};
+    return {
+      apps: [{ title: 'ViewTube', thumbnail: '@/assets/logos/viewtube.svg' }],
+    };
   },
 });
 </script>
@@ -28,5 +31,16 @@ export default Vue.extend({
   // background: linear-gradient(to bottom, transparent, #000000c9 60%);
   // backdrop-filter: blur(50px);
   z-index: 3;
+
+  .overview {
+    .overview-box {
+      .content {
+        .app-gallery {
+          height: calc(100% - 40px);
+          overflow: auto scroll;
+        }
+      }
+    }
+  }
 }
 </style>

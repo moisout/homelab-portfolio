@@ -4,7 +4,7 @@
       <img
         class="homelab-logo"
         src="@/assets/logos/homelab-logo-light.svg"
-        alt="Homelab Logo"
+        alt="-"
       />
       <p class="letters">
         <span v-for="(letter, i) in titleArray(title1)" :key="i">{{
@@ -166,6 +166,12 @@ header {
     background-color: #1e1e1e;
     z-index: 10;
 
+    .letters {
+      span {
+        color: #fff;
+      }
+    }
+
     .homelab-logo {
       position: absolute;
       top: 70px;
@@ -175,12 +181,12 @@ header {
       height: 64px;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: $mobile-width) {
       transform: rotate(0) translate(0, 0);
       height: 60px;
       width: 100%;
       padding: 0 10px 0 56px;
-      animation: fade 300ms;
+      animation: translate 300ms;
 
       .homelab-logo {
         top: 2.5px;
@@ -201,7 +207,7 @@ header {
     p.letters {
       @for $i from 1 through 7 {
         span:nth-of-type(#{$i}) {
-          animation-delay: ($i * 100) + ms;
+          animation-delay: (($i + 10) * 100) + ms;
         }
       }
     }
@@ -213,11 +219,12 @@ header {
     height: 80px;
     transition: margin 300ms;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: $mobile-width) {
       margin-top: 60px;
+      justify-content: space-around;
 
       .nav-btn {
-        margin: auto 0;
+        margin: auto 0 !important;
       }
     }
 
@@ -260,12 +267,20 @@ header {
     }
   }
 }
-@keyframes fade {
+@keyframes translate {
   0% {
     transform: translateY(-100%);
   }
   100% {
     opacity: translateY(0);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
