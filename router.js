@@ -13,10 +13,6 @@ export function createRouter() {
         path: '/',
         component: Index,
       },
-      // {
-      //   path: '*',
-      //   component: Index,
-      // },
     ],
   });
 }
