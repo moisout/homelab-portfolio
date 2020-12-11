@@ -14,7 +14,10 @@ steps:
     settings:
       hostname:
         from_secret: ftp_server
-      secrets: [ftp_username, ftp_password]
+      ftp_username:
+        from_secret: ftp_username
+      ftp_password:
+        from_secret: ftp_password
       verify: false
       exclude:
         - ^\.git/$
