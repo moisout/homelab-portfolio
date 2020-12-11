@@ -4,7 +4,7 @@ name: default
 
 steps:
   - name: 🧱 Build
-    image: node:8.6.0
+    image: node:14
     commands:
       - yarn install --pure-lockfile
       - yarn generate
