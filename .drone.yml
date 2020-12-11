@@ -3,13 +3,13 @@ type: docker
 name: default
 
 steps:
-  - name: 🧱 Build
+  - name: Build
     image: node:15
     commands:
       - yarn install --pure-lockfile
       - yarn generate
 
-  - name: 📦 Deploy
+  - name: Deploy
     image: cschlosser/drone-ftps
     environment:
       PLUGIN_HOSTNAME:
