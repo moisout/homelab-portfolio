@@ -11,15 +11,15 @@ steps:
 
   - name: 📦 Deploy
     image: cschlosser/drone-ftps
-    settings:
-      hostname:
-        from_secret: ftp_server
-      ftp_username:
-        from_secret: ftp_username
-      ftp_password:
-        from_secret: ftp_password
-      verify: false
-      exclude:
+    environment:
+      PLUGIN_HOSTNAME:
+        from_secret: FTP_SERVER
+      FTP_USERNAME:
+        from_secret: FTP_USERNAME
+      FTP_PASSWORD:
+        from_secret: FTP_PASSWORD
+      PLUGIN_VERIFY: false
+      PLUGIN_EXCLUDE:
         - ^\.git/$
         - ^\.gitignore$
         - ^\.drone.yml$
