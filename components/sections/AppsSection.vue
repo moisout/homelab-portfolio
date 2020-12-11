@@ -8,7 +8,9 @@
             <div v-for="app in apps" :key="app.index" class="app">
               <div class="title-container">
                 <img :src="app.thumbnail" :alt="app.title" />
-                <h3>{{ app.title }}</h3>
+                <a :href="app.link" target="_blank" rel="noopener noreferrer"
+                  ><h3>{{ app.title }}</h3></a
+                >
               </div>
               <div class="description-container">
                 <p>{{ app.description }}</p>
@@ -33,12 +35,14 @@ export default Vue.extend({
           title: 'ViewTube',
           thumbnail: require('@/assets/icons/viewtube.svg'),
           description:
-            'ViewTube is an alternative YouTube frontend using the invidio.us API. It can recommend, play and search for videos. It saves your watch progress and you can subscribe to channels for them to appear in your subscription feed.',
+            'ViewTube is an alternative YouTube frontend using the invidio.us API. It can recommend, play and search for videos.',
+          link: 'https://github.com/ViewTube/viewtube-vue',
         },
         {
           title: 'Drone.io',
           thumbnail: require('@/assets/icons/drone.png'),
           description: 'a',
+          link: 'https://www.drone.io/',
         },
       ],
     };
@@ -62,6 +66,9 @@ export default Vue.extend({
           overflow: hidden auto;
           display: grid;
           grid-template-columns: repeat(auto-fill, 50%);
+          @media screen and (min-width: 1200px) {
+            grid-template-columns: repeat(auto-fill, 33%);
+          }
 
           @media screen and (max-width: $mobile-width) {
             grid-template-columns: 100%;
@@ -70,7 +77,7 @@ export default Vue.extend({
           .app {
             display: flex;
             flex-direction: row;
-            margin: 10px 10px 0 0;
+            margin: 10px 15px 0 0;
 
             .title-container {
               display: flex;
@@ -78,10 +85,37 @@ export default Vue.extend({
               margin: 0 10px 0 0;
 
               img {
-                width: 100px;
-                height: 100px;
+                width: 96px;
+                height: 96px;
               }
-              h3 {
+              a {
+                text-decoration: none;
+                color: $theme-color-1;
+                position: relative;
+
+                &::after {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 3px;
+                  background-color: #dd2c77;
+                  border-radius: 2px;
+                  transform: scale(0, 1);
+                  transform-origin: left;
+                  transition: transform 300ms ease-in-out;
+                }
+
+                &:hover {
+                  &::after {
+                    transform: scale(1);
+                  }
+                }
+                h3 {
+                  margin: 10px 0 0 0;
+                }
               }
             }
             .description-container {

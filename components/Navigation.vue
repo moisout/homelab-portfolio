@@ -243,7 +243,7 @@ header {
         left: 0;
         top: 0;
         position: absolute;
-        background-color: #ff3d8b;
+        background-color: $theme-color-1;
         transform: scale(0.8);
         transform-origin: center;
         opacity: 0;

@@ -1,0 +1,28 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: 🧱 Build
+    image: node:8.6.0
+    commands:
+      - yarn install --pure-lockfile
+      - yarn generate
+
+  - name: 📦 Deploy
+    image: cschlosser/drone-ftps
+    settings:
+      hostname:
+        from_secret: ftp_server
+      secrets: [ ftp_username, ftp_password ]
+      verify: false
+      exclude:
+        - ^\.git/$
+        - ^\.gitignore$
+        - ^\.drone.yml$
+      src_dir: /dist
+    when:
+      branch:
+        - master
+      event:
+        - push

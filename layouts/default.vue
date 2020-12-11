@@ -19,7 +19,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
-  scrollbar-color: #ff3d8ba4 #d1d1d1;
+  scrollbar-color: $theme-color-1 #d1d1d1;
   scrollbar-width: auto;
 }
 
