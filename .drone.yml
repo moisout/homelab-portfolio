@@ -23,7 +23,7 @@ steps:
         - ^\.git/$
         - ^\.gitignore$
         - ^\.drone.yml$
-      src_dir: /dist
+      PLUGIN_SRC_DIR: /dist
     when:
       branch:
         - master
