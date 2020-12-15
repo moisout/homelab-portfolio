@@ -3,9 +3,14 @@
     <div class="overview">
       <div class="overview-box">
         <div class="content" :class="{ 'overlay-hidden': videoHidden }">
-          <video ref="video" class="videoplayer" controls="true">
-            <source src="@/assets/videos/videoplayback.mp4" type="video/mp4" />
-          </video>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/a2WAwuZLeWE"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <div class="video-overlay" @click.prevent="playVideo"></div>
           <span class="play-btn"
             ><img src="@/assets/logos/play-icon.svg" alt=">"
