@@ -4,8 +4,8 @@
       <div class="overview-box">
         <div class="content" :class="{ 'overlay-hidden': videoHidden }">
           <iframe
-            width="560"
-            height="315"
+            width="100%"
+            height="100%"
             src="https://www.youtube-nocookie.com/embed/a2WAwuZLeWE"
             frameborder="0"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
@@ -34,7 +34,6 @@ export default Vue.extend({
   methods: {
     playVideo() {
       this.videoHidden = true;
-      (this.$refs.video as any).play();
     },
   },
 });
@@ -93,6 +92,7 @@ export default Vue.extend({
           left: 50%;
           transform: translate(-50%, -50%);
           transition: opacity 200ms;
+          pointer-events: none;
 
           img {
             width: 84px;
