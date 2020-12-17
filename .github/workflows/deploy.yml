@@ -20,13 +20,6 @@ jobs:
         uses: CultureHQ/actions-yarn@v1.0.1
         with:
           args: generate    
-      - name: FTP Deployment
-        uses: airvzxf/ftp-deployment-action@latest
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: dist/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
