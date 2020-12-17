@@ -27,10 +27,13 @@
               transform: `translate3d(${(currentImg - 1) * -120}%,0,0)`,
             }"
           >
-            <img class="image-original" src="@/assets/images/home-1080x.webp" />
+            <img
+              class="image-original"
+              src="@/assets/images/image-2-unedited.jpg"
+            />
             <img
               class="image-edited"
-              src="@/assets/images/home-1080x.webp"
+              src="@/assets/images/image-2-edited.jpg"
               :style="{ opacity: imageOpacity }"
             />
           </div>
@@ -40,10 +43,13 @@
               transform: `translate3d(${(currentImg - 2) * -120}%,0,0)`,
             }"
           >
-            <img class="image-original" src="@/assets/images/home-1080x.webp" />
+            <img
+              class="image-original"
+              src="@/assets/images/image-2-unedited.jpg"
+            />
             <img
               class="image-edited"
-              src="@/assets/images/home-1080x.webp"
+              src="@/assets/images/image-2-edited.jpg"
               :style="{ opacity: imageOpacity }"
             />
           </div>

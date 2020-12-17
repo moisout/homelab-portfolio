@@ -11,7 +11,7 @@
           <div class="right-content">
             <img
               class="showcase-image"
-              src="@/assets/images/home-720x.webp"
+              src="@/assets/images/image-2-edited.jpg"
               alt="Home image"
             />
           </div>

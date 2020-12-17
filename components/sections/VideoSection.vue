@@ -4,6 +4,7 @@
       <div class="overview-box">
         <div class="content" :class="{ 'overlay-hidden': videoHidden }">
           <iframe
+            v-if="videoHidden"
             width="100%"
             height="100%"
             src="https://www.youtube-nocookie.com/embed/a2WAwuZLeWE"

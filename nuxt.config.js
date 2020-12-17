@@ -5,19 +5,30 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
+  loading: false,
+
   router: {
     base: '/2020/ina4a/gruppe14/',
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'en',
+    },
     title: 'Homelab :: Portfolio :: Maurice Oegerli',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/2020/ina4a/gruppe14/favicon.ico',
+      },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -40,7 +51,12 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/html-validator',
   ],
+
+  htmlValidator: {
+    usePrettier: true,
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxt/content', '@nuxtjs/style-resources'],
