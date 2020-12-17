@@ -11,7 +11,15 @@
             class="image-container"
             :style="{ transform: `translate3d(${currentImg * -120}%,0,0)` }"
           >
-            <img class="image" src="@/assets/images/home-1080x.webp" />
+            <img
+              class="image-original"
+              src="@/assets/images/image-1-unedited.jpg"
+            />
+            <img
+              class="image-edited"
+              src="@/assets/images/image-1-edited.jpg"
+              :style="{ opacity: imageOpacity }"
+            />
           </div>
           <div
             class="image-container"
@@ -19,7 +27,12 @@
               transform: `translate3d(${(currentImg - 1) * -120}%,0,0)`,
             }"
           >
-            <img class="image" src="@/assets/images/home-1080x.webp" />
+            <img class="image-original" src="@/assets/images/home-1080x.webp" />
+            <img
+              class="image-edited"
+              src="@/assets/images/home-1080x.webp"
+              :style="{ opacity: imageOpacity }"
+            />
           </div>
           <div
             class="image-container"
@@ -27,9 +40,28 @@
               transform: `translate3d(${(currentImg - 2) * -120}%,0,0)`,
             }"
           >
-            <img class="image" src="@/assets/images/home-1080x.webp" />
+            <img class="image-original" src="@/assets/images/home-1080x.webp" />
+            <img
+              class="image-edited"
+              src="@/assets/images/home-1080x.webp"
+              :style="{ opacity: imageOpacity }"
+            />
           </div>
           <a class="swipe swipe-right" href="#" @click="cycleRight">&rsaquo;</a>
+          <div class="image-slider-container">
+            <input
+              id="image-slider"
+              v-model.number="imageOpacity"
+              type="range"
+              name="image-slider"
+              min="0"
+              max="1"
+              step="0.01"
+            />
+            <label for="image-slider"
+              >{{ Math.floor(imageOpacity * 100) }}% edited</label
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +77,7 @@ export default Vue.extend({
     return {
       currentImg: 0,
       imageCount: 3,
+      imageOpacity: 0,
     };
   },
   methods: {
@@ -116,6 +149,120 @@ export default Vue.extend({
     .swipe-right {
       right: 0;
     }
+    .image-slider-container {
+      position: absolute;
+      top: calc(100% - 80px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 14;
+      width: 100%;
+      background: linear-gradient(to bottom, transparent, #fff 50%);
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      padding: 40px 0 0 0;
+      box-sizing: border-box;
+
+      input[type='range'] {
+        -webkit-appearance: none;
+        background-color: transparent;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range']::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: $theme-color-1;
+        border-radius: 25px;
+        border: 0px solid #000101;
+      }
+      input[type='range']::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 20px;
+        width: 20px;
+        border-radius: 25px;
+        background: $theme-color-1;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7.5px;
+      }
+      input[type='range']:focus::-webkit-slider-runnable-track {
+        background: $theme-color-1;
+      }
+      input[type='range']::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: $theme-color-1;
+        border-radius: 25px;
+        border: 0px solid #000101;
+      }
+      input[type='range']::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 20px;
+        width: 20px;
+        border-radius: 25px;
+        background: $theme-color-1;
+        cursor: pointer;
+      }
+      input[type='range']::-ms-track {
+        width: 100%;
+        height: 12.8px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        border-width: 39px 0;
+        color: transparent;
+      }
+      input[type='range']::-ms-fill-lower {
+        background: $theme-color-1;
+        border: 0px solid #000101;
+        border-radius: 50px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      }
+      input[type='range']::-ms-fill-upper {
+        background: $theme-color-1;
+        border: 0px solid #000101;
+        border-radius: 50px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      }
+      input[type='range']::-ms-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 20px;
+        width: 39px;
+        border-radius: 7px;
+        background: $theme-color-1;
+        cursor: pointer;
+      }
+      input[type='range']:focus::-ms-fill-lower {
+        background: $theme-color-1;
+      }
+      input[type='range']:focus::-ms-fill-upper {
+        background: $theme-color-1;
+      }
+
+      body {
+        padding: 30px;
+      }
+
+      input {
+        width: 80%;
+        height: 40px;
+      }
+      label {
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin: 0 0 0 10px;
+      }
+    }
     .image-container {
       width: calc(100% - 80px);
       height: calc(100% - 40px);
@@ -125,8 +272,9 @@ export default Vue.extend({
       transition: transform 350ms;
       z-index: 3;
 
-      .image {
-        position: relative;
+      .image-original,
+      .image-edited {
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

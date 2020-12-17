@@ -87,6 +87,7 @@ export default Vue.extend({
   }
 
   .section {
+    pointer-events: none;
     height: 100%;
     width: 100%;
 
@@ -118,6 +119,7 @@ export default Vue.extend({
         position: relative;
 
         .content {
+          pointer-events: all;
           border-radius: 20px;
           top: 80px;
           left: 0;
