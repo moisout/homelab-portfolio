@@ -1481,13 +1481,13 @@
     consola "^2.15.0"
     eslint-webpack-plugin "^2.4.1"
 
-"@nuxtjs/html-validator@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/html-validator/-/html-validator-0.1.4.tgz#197c04a266c46b65b6cd56bca91a0377d93e9c07"
-  integrity sha512-7OTRlPQE9xvMYOqRfqt/xJi89AFqvGC3MGVT70Ty+MXC876Nf04sIacs3bBk2koVeonohvwhs6/zf5anDSPsyQ==
+"@nuxtjs/html-validator@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/html-validator/-/html-validator-0.1.5.tgz#995c8914009e697a25116cb4251a8a2362d340f2"
+  integrity sha512-DM3bkuQiJTYniDhx9mTgGFNtR+zawKIhxf5dmEM3aiZDPMukvplz5Et48lVc5dbRLQSy5tputBMAjDbCrb0yWw==
   dependencies:
     defu "^3.2.2"
-    html-validate "^4.0.2"
+    html-validate "^4.1.0"
 
 "@nuxtjs/style-resources@^1.0.0":
   version "1.0.0"
@@ -5749,7 +5749,7 @@ html-tags@^3.1.0:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
   integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
 
-html-validate@^4.0.2:
+html-validate@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/html-validate/-/html-validate-4.1.0.tgz#bc7607d47fcaf3480c33523a5263bd51f7c49075"
   integrity sha512-2ADmbTlvZZCRI/8/Lbu8eHhf93aNFTeIVD4ZxBENbrfaeZmJ3gzWsFRjJkq9ooetRNwuGU1q0rD3MnbXZVBh8Q==
