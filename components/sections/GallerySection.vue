@@ -6,7 +6,13 @@
           <span class="image-indicator"
             >{{ currentImg + 1 }}/{{ imageCount }}</span
           >
-          <a class="swipe swipe-left" href="#" @click="cycleLeft">&lsaquo;</a>
+          <a
+            v-if="currentImg > 0"
+            class="swipe swipe-left"
+            href="#"
+            @click="cycleLeft"
+            >&lsaquo;</a
+          >
           <div
             class="image-container"
             :style="{ transform: `translate3d(${currentImg * -120}%,0,0)` }"
@@ -53,7 +59,13 @@
               :style="{ opacity: imageOpacity }"
             />
           </div>
-          <a class="swipe swipe-right" href="#" @click="cycleRight">&rsaquo;</a>
+          <a
+            v-if="currentImg < 2"
+            class="swipe swipe-right"
+            href="#"
+            @click="cycleRight"
+            >&rsaquo;</a
+          >
           <div class="image-slider-container">
             <input
               id="image-slider"

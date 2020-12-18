@@ -2,8 +2,9 @@
   <section id="ueber" class="section section-5">
     <div class="overview">
       <div class="overview-box">
-        <div class="content">
-          <h2>Über</h2>
+        <div v-if="about" class="content">
+          <h2>{{ about.title }}</h2>
+          <nuxt-content :document="about" />
         </div>
       </div>
     </div>
@@ -16,7 +17,13 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'AboutSection',
   data() {
-    return {};
+    return {
+      about: null,
+    };
+  },
+  async fetch() {
+    const about = await this.$content('about').fetch();
+    this.about = about;
   },
 });
 </script>
