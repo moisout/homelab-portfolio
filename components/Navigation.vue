@@ -77,11 +77,6 @@ export default Vue.extend({
       return selected;
     },
   },
-  watch: {
-    selectedNavItem(newVal) {
-      window.location.hash = newVal.hash;
-    },
-  },
   mounted() {
     setTimeout(() => {
       const currentScrollItem = this.navItems.find(
@@ -124,11 +119,10 @@ export default Vue.extend({
     titleArray(title: string): Array<string> {
       return title.split('');
     },
-    scrollTo(hash: string, pos: number, e: any = null) {
+    scrollTo(_: string, pos: number, e: any = null) {
       document
         .getElementsByClassName('container')[0]
         .scrollTo({ top: pos, behavior: 'smooth' });
-      window.location.hash = hash;
       if (e) {
         e.preventDefault();
       }
@@ -145,7 +139,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  z-index: 9;
+  z-index: 12;
   background-color: #fff;
 
   .main-title {

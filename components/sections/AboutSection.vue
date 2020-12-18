@@ -21,12 +21,4 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-.section-5 {
-  position: sticky;
-  top: 0;
-  // background: linear-gradient(to bottom, transparent, #000000c9 60%);
-  // backdrop-filter: blur(50px);
-  z-index: 3;
-}
-</style>
+<style lang="scss"></style>

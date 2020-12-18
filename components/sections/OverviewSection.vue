@@ -11,7 +11,7 @@
           <div class="right-content">
             <img
               class="showcase-image"
-              src="@/assets/images/image-2-edited.jpg"
+              src="@/assets/images/image-3-edited.jpg"
               alt="Home image"
             />
           </div>
@@ -41,17 +41,17 @@ export default Vue.extend({
 
 <style lang="scss">
 .section-1 {
-  overflow: hidden;
-  position: sticky;
-  top: 0;
+  @media screen and (max-width: $mobile-width) {
+    padding: 140px 0 0 0;
+  }
 
   .content {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
 
     @media screen and (max-width: $mobile-width) {
       grid-template-columns: 100%;
-      grid-template-rows: 50% 50%;
+      grid-template-rows: 40% 60%;
 
       .right-content {
         .showcase-image {

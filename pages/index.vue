@@ -90,6 +90,12 @@ export default Vue.extend({
     pointer-events: none;
     height: 100%;
     width: 100%;
+    position: sticky;
+    top: 0;
+
+    @media screen and (max-width: $mobile-width) {
+      position: static;
+    }
 
     &:nth-of-type(1) {
       .overview-box::before {
@@ -107,7 +113,7 @@ export default Vue.extend({
       transition: padding 300ms;
 
       @media screen and (max-width: $mobile-width) {
-        padding: 70px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
       }
 
       .overview-box {
@@ -128,6 +134,10 @@ export default Vue.extend({
           padding: 20px;
           background-color: #fff;
           position: absolute;
+
+          @media screen and (max-width: $mobile-width) {
+            top: 0;
+          }
         }
 
         &::before {
@@ -139,6 +149,10 @@ export default Vue.extend({
           right: -5px;
           bottom: -5px;
           background: #dd2c77;
+
+          @media screen and (max-width: $mobile-width) {
+            top: -5px;
+          }
         }
       }
     }

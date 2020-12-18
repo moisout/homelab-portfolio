@@ -13,11 +13,11 @@
           >
             <img
               class="image-original"
-              src="@/assets/images/image-1-unedited.jpg"
+              src="@/assets/images/image-3-unedited.jpg"
             />
             <img
               class="image-edited"
-              src="@/assets/images/image-1-edited.jpg"
+              src="@/assets/images/image-3-edited.jpg"
               :style="{ opacity: imageOpacity }"
             />
           </div>
@@ -45,11 +45,11 @@
           >
             <img
               class="image-original"
-              src="@/assets/images/image-2-unedited.jpg"
+              src="@/assets/images/image-1-unedited.jpg"
             />
             <img
               class="image-edited"
-              src="@/assets/images/image-2-edited.jpg"
+              src="@/assets/images/image-1-edited.jpg"
               :style="{ opacity: imageOpacity }"
             />
           </div>
@@ -104,13 +104,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.section-2 {
-  position: sticky;
-  top: 0;
-  // background: linear-gradient(to bottom, transparent, #000000c9);
-  z-index: 2;
-}
-
 .gallery {
   width: 100%;
   height: 100%;
@@ -160,7 +153,7 @@ export default Vue.extend({
       top: calc(100% - 80px);
       left: 50%;
       transform: translateX(-50%);
-      z-index: 14;
+      z-index: 11;
       width: 100%;
       background: linear-gradient(to bottom, transparent, #fff 50%);
       display: flex;

@@ -113,12 +113,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .section-4 {
-  position: sticky;
-  top: 0;
-  // background: linear-gradient(to bottom, transparent, #000000c9 60%);
-  // backdrop-filter: blur(50px);
-  z-index: 3;
-
   .overview {
     .overview-box {
       .content {
